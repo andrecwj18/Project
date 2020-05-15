@@ -1,5 +1,6 @@
 asgiref==3.2.7
 Django==3.0.6
+django-webpack-loader==0.7.0
 pip==20.1
 pytz==2020.1
 setuptools==46.1.3
