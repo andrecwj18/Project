@@ -15,12 +15,11 @@
             app
             floating
             :permanent="sidebarMenu"
-            :mini-variant.sync="mini"
-        >
-            <v-list dense color="primary" dark>
+            :mini-variant.sync="mini">
+            <v-list dense color="primary" rounded="false" dark>
                 <v-list-item>
                     <v-list-item-action>
-                        <v-icon @click.stop="sidebarMenu = !sidebarMenu"
+                        <v-icon @click.stop="toggleMini = !toggleMini"
                             >mdi-chevron-left</v-icon
                         >
                     </v-list-item-action>
@@ -105,4 +104,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.v-list--dense {
+    border-radius: 0 !important;
+}
+</style>
