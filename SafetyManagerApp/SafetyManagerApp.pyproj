@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
+    <Compile Include="SafetyManagerApp\views.py" />
     <Compile Include="SafetyManagerApp\__init__.py" />
     <Compile Include="SafetyManagerApp\settings.py" />
     <Compile Include="SafetyManagerApp\urls.py" />
