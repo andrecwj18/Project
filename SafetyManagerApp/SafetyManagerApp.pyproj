@@ -47,6 +47,7 @@
     <Content Include="frontend\public\index.html" />
     <Content Include="frontend\README.md" />
     <Content Include="frontend\src\App.vue" />
+    <Content Include="frontend\src\assets\ectc_logo.png" />
     <Content Include="frontend\src\assets\logo.png" />
     <Content Include="frontend\src\assets\logo.svg" />
     <Content Include="frontend\src\components\HomePlans.vue" />
@@ -55,6 +56,7 @@
     <Content Include="frontend\src\components\AppNavigation.vue" />
     <Content Include="frontend\src\main.js" />
     <Content Include="frontend\src\plugins\vuetify.js" />
+    <Content Include="frontend\src\plugins\vuetify\lightTheme.js" />
     <Content Include="frontend\src\router\index.js" />
     <Content Include="frontend\src\views\ManageLogs.vue" />
     <Content Include="frontend\src\views\SlackNotifications.vue" />
@@ -73,6 +75,7 @@
     <Folder Include="frontend\src\assets\" />
     <Folder Include="frontend\src\components\" />
     <Folder Include="frontend\src\plugins\" />
+    <Folder Include="frontend\src\plugins\vuetify\" />
     <Folder Include="frontend\src\router\" />
     <Folder Include="frontend\src\views\" />
     <Folder Include="SafetyManagerApp\" />
