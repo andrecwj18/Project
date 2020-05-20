@@ -1,21 +1,15 @@
 <template>
     <v-container fluid>
-        <v-layout>
-            <h1>Manage Logs Page</h1>
-        </v-layout>
-
         <div id="example-1">
             <button>Delete Row</button>
         </div>
-
-        <div class="base-demo" style="width: 600px;">
-            <vue-table-dynamic :params="params"
-                               @select="onSelect"
-                               @selection-change="onSelectionChange"
-                               ref="table">
-            </vue-table-dynamic>
-        </div>
-
+        <v-card>
+                <vue-table-dynamic :params="params"
+                                   @select="onSelect"
+                                   @selection-change="onSelectionChange"
+                                   ref="table">
+                </vue-table-dynamic>
+        </v-card>
     </v-container>
 </template>
 <script>
