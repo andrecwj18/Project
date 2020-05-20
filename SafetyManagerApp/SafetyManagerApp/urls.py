@@ -17,13 +17,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from django.views.generic import TemplateView
-
+from django.urls import path,include
+from django.conf.urls import url
+from django.views.generic import TemplateView 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",
         TemplateView.as_view(template_name="application.html"),
         name="app",
     ),
-]
+
+        path('api/', include('SafetyManagerApp.router')), 
+    #url('viewlogs/', views.viewlogs, name='viewlogs'),
+    #url(r'^deletelogs/(?P<logs_id>\d+)/$', views.deletelogs, name='deletelogs'),
+
+     ]

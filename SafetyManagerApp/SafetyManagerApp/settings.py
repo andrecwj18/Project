@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
+    'rest_framework',    
+    'SafetyManagerApp',
+    'djangotoolbox',
+    'logs',
 ]
 
 # Middleware framework
@@ -78,10 +82,23 @@ WSGI_APPLICATION = 'SafetyManagerApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
+
+# Database reference
+# https://nesdis.github.io/djongo/integrating-django-with-mongodb/
+#DATABASES = {
+#   'default' : {
+#      'ENGINE' : 'djongo',
+#      'NAME' : 'SafetyManagerApp'
+#   }
+#}
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'SafetyManagerApp',
+        'HOST':'mongodb://admin:admin@safetymanagerapp-shard-00-00-tu3mk.mongodb.net:27017,safetymanagerapp-shard-00-01-tu3mk.mongodb.net:27017,safetymanagerapp-shard-00-02-tu3mk.mongodb.net:27017/test?ssl=true&replicaSet=SafetyManagerApp-shard-0&authSource=admin&retryWrites=true&w=majority', 
     }
 }
 
