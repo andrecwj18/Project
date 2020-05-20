@@ -45,9 +45,11 @@ class LogsView(APIView):
                 viewlog.isviolated = log.isviolated
                 equipmentviolated =   logequipment.objects.filter(logId= log.id)
            
-                for equipementsvio in equipmentviolated :
-                    actors = equipment.objects.get(id = equipementsvio.equipmentId_id) 
-                    ppeequipment.append(actors.equipmentName) 
+                for equipementsvio in equipmentviolated : 
+           #         actors = equipment.objects.filter(id= equipementsvio.equipmentId_id)
+
+                    equioemt = get_object_or_404(equipment.objects.all(), id =equipementsvio.equipmentId_id)
+                    ppeequipment.append(equioemt.equipmentName) 
              
                 outputdata =fs.get(ObjectId(log.image)).read() 
                 base64_data = codecs.encode(outputdata, 'base64')
@@ -110,7 +112,6 @@ class LogDetailView(APIView):
                 log = get_object_or_404(logs.objects.all(), id =pk)
 
                 items = [] 
-
                 viewlog = details()
                 ppeequipment = []
 
@@ -129,10 +130,8 @@ class LogDetailView(APIView):
          
                 viewlog.image=image 
                 viewlog.equipment = ','.join(map(str, ppeequipment)) 
-
-                items.append(viewlog) 
+                items.append(viewlog)
                 
-
                 serializer = LogsSerializer(items, many=True)
                 context = {"logs": serializer.data }
 

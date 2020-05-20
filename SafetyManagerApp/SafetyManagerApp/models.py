@@ -9,7 +9,7 @@ class equipment(models.Model):
  
 class logs(models.Model):
     image = models.CharField(max_length=100) 
-    timestamp = models.CharField(max_length=100)
+    timestamp = models.DateTimeField()
     LOCATOR_YES_NO_CHOICES = ((None,''), (True,'Yes'), (False, 'No'))
 
     isviolated  = models.NullBooleanField(choices=LOCATOR_YES_NO_CHOICES,max_length=3,blank=True, null=True, default=None,)

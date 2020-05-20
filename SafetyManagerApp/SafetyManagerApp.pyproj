@@ -3,7 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>SafetyManagerApp</Name>
     <RootNamespace>SafetyManagerApp</RootNamespace>
-    <InterpreterId>CondaEnv|CondaEnv|env4</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|env1</InterpreterId>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup>
@@ -31,13 +31,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="details\serializers.py" />
+    <Compile Include="details\views.py" />
     <Compile Include="equipments\serializers.py" />
-    <Compile Include="equipments\urls.py" />
     <Compile Include="equipments\views.py" />
     <Compile Include="logs\serializers.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="logs\urls.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="manage.py" />
@@ -92,10 +90,12 @@
     <Folder Include="frontend\src\views\" />
     <Folder Include="logs\" />
     <Folder Include="equipments\" />
+    <Folder Include="details\" />
     <Folder Include="SafetyManagerApp\" />
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|env1" />
     <InterpreterReference Include="CondaEnv|CondaEnv|env4" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />

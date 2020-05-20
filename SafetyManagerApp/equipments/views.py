@@ -22,11 +22,6 @@ from rest_framework.generics import get_object_or_404
 from SafetyManagerApp.models import logs ,logequipment ,equipment,details
 from .serializers import EquipmentSerializer ,EquipmentCreateSerializer
 
-articles = logs.objects.all()
-
-client = pymongo.MongoClient('mongodb+srv://admin:admin@safetymanagerapp-tu3mk.mongodb.net/test')
-db = client["SafetyManagerApp"]
-fs = gridfs.GridFS(db, collection='SafetyManagerApp_logs')
 
 class EquipmentsView(APIView):
     def get(self, request,pk = None):
@@ -39,22 +34,22 @@ class EquipmentsView(APIView):
         return Response({"equipment": serializer.data})
   
   
-    def delete(self, request,pk)  :
-        try :
-            ppeexists = equipment.objects.filter(id=pk)
-            if ppeexists.exists():
-                deletePPE = get_object_or_404(equipment.objects.all(), pk=pk) 
-                deletePPE.delete() 
-                content = {'delete': 'success' }
-                return Response(content)
+    #def delete(self, request,pk)  :
+    #    try :
+    #        ppeexists = equipment.objects.filter(id=pk)
+    #        if ppeexists.exists():
+    #            deletePPE = get_object_or_404(equipment.objects.all(), pk=pk) 
+    #            deletePPE.delete() 
+    #            content = {'delete': 'success' }
+    #            return Response(content)
                  
-            else :
-                content = {"delete": "object has already been deleted" }
-        except :
-            content = {"Error": "error occured" }
+    #        else :
+    #            content = {"delete": "object has already been deleted" }
+    #    except :
+    #        content = {"Error": "error occured" }
 
 
-        return Response(content)
+    #    return Response(content)
 
 
 
