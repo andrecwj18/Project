@@ -3,8 +3,7 @@
         <v-sheet class="v-sheet--offset d-flex mx-auto"
                  elevation="6"
                  max-width="calc(100% - 32px)"
-                 :style="{'background-color': toggleColor}"
-                 >
+                 :style="{'background-color': toggleColor}">
             <v-icon class="pa-6" large dark>mdi-camera</v-icon>
             <span class="font-weight-light d-flex align-center mr-auto white--text">Live Camera Feed</span>
             <v-card-actions class="pr-4">
@@ -24,15 +23,15 @@
 
     export default {
         name: 'HomeCamera',
-        data: function() {
-            return { videoOn: true }
+        data: function () {
+            return { videoOn: false }
         },
         computed: {
             cameraBtnTxt() {
                 return this.videoOn ? 'Off' : 'On'
             },
             toggleColor() {
-                return this.videoOn ? '#14bd14' : 'red'
+                return this.videoOn ? '#14bd14' : '#ff0000'
             }
         },
         mounted() {
@@ -43,11 +42,11 @@
             toggleCamera() {
                 if (video.srcObject == null) {
                     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-                        .then(function (stream) {
+                        .then((stream) => {
                             video.srcObject = stream;
                             video.play();
+                            this.videoOn = true;
                         })
-                    this.videoOn = true;
                 }
                 else {
                     var stream = video.srcObject;
