@@ -4,45 +4,37 @@
             <button>Delete Row</button>
         </div>
         <v-card>
-                <vue-table-dynamic :params="params"
-                                   @select="onSelect"
-                                   @selection-change="onSelectionChange"
-                                   ref="table">
-                </vue-table-dynamic>
+            <v-data-table v-model="selected"
+                          :headers="headers"
+                          :items="timestamp"
+                          item-key="name"
+                          show-select
+                          class="elevation-1">
+                <template v-slot:top>
+                </template>
+            </v-data-table>
         </v-card>
+        <div>
+            <VueTableDynamic />
+        </div>
     </v-container>
 </template>
 <script>
 
     import VueTableDynamic from 'vue-table-dynamic'
     export default {
-        name: 'Demo',
-        data() {
-            return {
-                params: {
-                    data: [
-                        ['Timestamp', 'Missing PPE', 'Image of Incident'],
-                        [1, 'b3ba90', '7c95f7'],
-                        [2, 'ec0b78', 'ba045d'],
-                        [3, '63788d', 'a8c325']
-                    ],
-                    header: 'row',
-                    border:true,
-                    showCheck: true
-
-                }
-            }
+        components: {
+            VueTableDynamic
         },
-        methods: {
-            onSelect(isChecked, index, data) {
-                console.log('onSelect: ', isChecked, index, data)
-                console.log('Checked Data:', this.$refs.table.getCheckedRowDatas(true))
-            },
-            onSelectionChange(checkedDatas, checkedIndexs, checkedNum) {
-                console.log('onSelectionChange: ', checkedDatas, checkedIndexs, checkedNum)
+        computed: {
+            headers() {
+                return [
+                    { text: 'Timestamp', value: 'timestamp' },
+                    { text: 'Missing PPE', value: 'missing_ppe' },
+                    { text: 'Image', value: 'Image' },
+                ]
             }
-        },
-        components: { VueTableDynamic }
+        }
     }
 </script>
 <style scoped></style>
