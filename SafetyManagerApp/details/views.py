@@ -29,15 +29,10 @@ import pytz
 from collections import Counter
 
 
-
-
-
- 
-
 @api_view()
 def total_violation(request):
 
-    today =  datetime.now().date()
+    today = datetime.now().date()
     fromday = datetime.now().date() - timedelta(days=5)   
 
     login = []  
@@ -47,17 +42,17 @@ def total_violation(request):
     for log in alllogs :
 
         timestampdate = log.timestamp
-        logdate = datetime( timestampdate.year,timestampdate.month,timestampdate.day ).date()
+        logdate = datetime(timestampdate.year,timestampdate.month,timestampdate.day).date()
 
-        if fromday <= logdate <=today  :
+        if fromday <= logdate <= today  :
             login.append(logdate)
              
 
     violationonday = dict(Counter(login))
-    print (violationonday)
+    print(violationonday)
     base = datetime.today()
     date_list = [base.date() - timedelta(days=x) for x in range(5)]
-    print (date_list) 
+    print(date_list) 
     violationonday_key_list = list(violationonday.keys()) 
     
     violationvalues = []
@@ -69,8 +64,8 @@ def total_violation(request):
             value = 0
         violationvalues.append(value)
 
-# violationvalues : start with the today till 5 days after 
-# so the first value is today's violation then yesterday and so on .... 
+# violationvalues : start with the today till 5 days after
+# so the first value is today's violation then yesterday and so on ....
 
     return Response({"series 1 ": violationvalues })
 
