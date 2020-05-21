@@ -65,10 +65,10 @@
     <Content Include="frontend\src\App.vue" />
     <Content Include="frontend\src\assets\logo.png" />
     <Content Include="frontend\src\assets\logo.svg" />
-    <Content Include="frontend\src\components\HomePlans.vue" />
-    <Content Include="frontend\src\components\HomeDetails.vue" />
-    <Content Include="frontend\src\components\HomeHero.vue" />
-    <Content Include="frontend\src\components\AppNavigation.vue" />
+    <Content Include="frontend\src\components\HomeEquipmentList.vue" />
+    <Content Include="frontend\src\components\HomeCamera.vue" />
+    <Content Include="frontend\src\components\HomeBarChart.vue" />
+    <Content Include="frontend\src\components\HomeLineChart.vue" />
     <Content Include="frontend\src\main.js" />
     <Content Include="frontend\src\plugins\vuetify.js" />
     <Content Include="frontend\src\router\index.js" />
