@@ -3,7 +3,7 @@ from django.urls import path
 from logs.views import LogsView,LogDetailView
  
 from equipments.views import EquipmentsView
-from details  import views
+from details import views
 
  
 urlpatterns = [

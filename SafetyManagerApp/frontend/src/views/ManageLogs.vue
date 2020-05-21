@@ -6,32 +6,36 @@
         <v-card>
             <v-data-table v-model="selected"
                           :headers="headers"
-                          :items="timestamp"
+                          :items="items"
                           item-key="name"
                           show-select
-                          class="elevation-1">
+                          class="elevation-1"
+                          loading>
                 <template v-slot:top>
                 </template>
             </v-data-table>
         </v-card>
-        <div>
-            <VueTableDynamic />
-        </div>
     </v-container>
 </template>
 <script>
 
-    import VueTableDynamic from 'vue-table-dynamic'
+    import Axios from "axios"
+
+
     export default {
-        components: {
-            VueTableDynamic
-        },
-        computed: {
-            headers() {
-                return [
+        data() {
+            return {
+                selected: [],
+                itemList: [],
+                headers: [
+                    { text: 'ID', value: 'id' },
+                    { text: 'Violation', value: 'violation' },
                     { text: 'Timestamp', value: 'timestamp' },
-                    { text: 'Missing PPE', value: 'missing_ppe' },
-                    { text: 'Image', value: 'Image' },
+                    { text: 'Missing PPE', value: 'ppe' },
+                    { text: 'Image', value: 'image' }
+                ],
+                items: [
+                    Axios.get('http://localhost:65006/api/logs/')
                 ]
             }
         }
