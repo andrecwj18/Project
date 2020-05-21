@@ -20,7 +20,8 @@
 </template>
 
 <script>
-    import VueApexCharts from 'vue-apexcharts'
+    import VueApexCharts from 'vue-apexcharts';
+    import axios from 'axios';
 
     export default {
         name: 'HomeLineChart',
@@ -63,10 +64,13 @@
             }
         },
         mounted: function () {
-            this.seriesLine = [{
-                name: "PPE Violations",
-                data: [10, 41, 35, 51, 49]
-            }];
+            axios.get('/api/details/total_violation').then((response) => {
+                this.seriesLine = [{
+                    name: "PPE Violations", 
+                    data: response.data.series1,
+                }];
+            })
+            
         }
     };
 </script>

@@ -67,7 +67,7 @@ def total_violation(request):
 # violationvalues : start with the today till 5 days after
 # so the first value is today's violation then yesterday and so on ....
 
-    return Response({"series 1 ": violationvalues })
+    return Response({"series1": violationvalues })
 
 
 #@api_view()
